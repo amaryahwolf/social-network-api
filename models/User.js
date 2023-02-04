@@ -46,4 +46,5 @@ userSchema
 // Initialize User model
 const User = model('user', userSchema);
 
+// Export model
 module.exports = User;
