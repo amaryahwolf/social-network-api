@@ -44,30 +44,70 @@ const users = [
 
 // Array of thoughts
 const thoughts = [
-    'Coding is the coolest hobby to have.',
-    'This morning I had coffee and a croissant for breakfast.',
-    'I am super tired. TGIF!',
-    'There is a super rare comet flying over Earth tonight!',
-    'The best place I have travelled to is Sydney, Australia.',
-    'This weekend, I am visiting the zoo with my nephew!',
-    'Only three more days until my vacation starts!',
-    'This work project is super engaging.',
-    'This work project is super boring.',
-    'I watched two movies last night!',
+    {
+    thoughtText: 'Coding is the coolest hobby to have.'
+    },
+    {
+    thoughtText: 'This morning I had coffee and a croissant for breakfast.'
+    },
+    {
+    thoughtText: 'I am super tired. TGIF!'
+    },
+    {
+    thoughtText: 'There is a super rare comet flying over Earth tonight!'
+    },
+    {
+    thoughtText: 'The best place I have travelled to is Sydney, Australia.'
+    },
+    {
+    thoughtText: 'This weekend, I am visiting the zoo with my nephew!'
+    },
+    {
+    thoughtText: 'Only three more days until my vacation starts!'
+    },
+    {
+    thoughtText: 'This work project is super engaging.'
+    },
+    {
+    thoughtText: 'This work project is super boring.'
+    },
+    {
+    thoughtText: 'I watched two movies last night!'
+    }
 ];
 
 // Array of reactions
 const reactions = [
-    'This is awesome!',
-    'I agree!',
-    'I disagree.',
-    'Cool!',
-    'Can you elaborate more?',
-    'Thank you for sharing your thoughts.',
-    'This is great!',
-    'I do not understand this.',
-    'So amazing!',
-    'I love it!',
+    {
+    reactionBody: 'This is awesome!'
+    },
+    {
+    reactionBody: 'I agree!'
+    },
+    {
+    reactionBody: 'I disagree.'
+    },
+    {
+    reactionBody: 'Cool!'
+    },
+    {
+    reactionBody: 'Can you elaborate more?'
+    },
+    {
+    reactionBody: 'Thank you for sharing your thoughts.'
+    },
+    {
+    reactionBody: 'This is great!'
+    },
+    {
+    reactionBody: 'I do not understand this.'
+    },
+    {
+    reactionBody: 'So amazing!'
+    },
+    {
+    reactionBody: 'I love it!'
+    }
 ];
 
 // Get a random item given an array
@@ -79,13 +119,14 @@ const getRandomName = () =>
   getRandomArrItem(users);
 
 // Function to generate random thoughts and reactions to add to db
+// TODO: debug username and reactions seeding
 const getRandomThoughts = (int) => {
     let results = [];
     for (let i = 0; i < int; i++) {
       results.push({
         thoughtText: getRandomArrItem(thoughts),
         username: getRandomName(),
-        reactions: [...getReactions(3)],
+        reactions: [...getReactions()],
       });
     }
     return results;
@@ -99,7 +140,7 @@ const getReactions = (int) => {
     let results = [];
     for (let i = 0; i < int; i++) {
       results.push({
-        reactioneBody: getRandomArrItem(reactions),
+        reactionBody: getRandomArrItem(reactions),
         username: getRandomName(),
       });
     }
