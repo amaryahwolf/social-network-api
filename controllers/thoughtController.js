@@ -34,11 +34,12 @@ module.exports = {
                     : res.json('Thought created!')
             )
             .catch((err) => {
+                console.log(err);
                 res.status(500).json(err);
             });
     },
     // Update a thought
-    udpateThought(req, res) {
+    updateThought(req, res) {
         Thought.findOneAndUpdate(
             { _id: req.params.thoughtId },
             { $set: req.body },
@@ -50,6 +51,7 @@ module.exports = {
                 : res.json(thought)
         )
         .catch((err) => {
+            console.log(err);
             res.status(500).json(err);
         });
     },
