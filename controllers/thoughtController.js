@@ -3,14 +3,12 @@ const { Thought, User } = require('../models');
 
 module.exports = {
     // Get all thoughts
-    // TODO: debug route to display thoughts
     getThoughts(req, res) {
         Thought.find()
             .then((thoughts) => res.json(thoughts))
             .catch((err) => res.status(500).json(err));
     },
     // Get one thought
-    // TODO: debug route to display thoughts
     getSingleThought(req, res) {
         Thought.findOne({ _id: req.params.thoughtId })
         .then((thought) =>
@@ -93,6 +91,7 @@ module.exports = {
         .catch((err) => res.status(500).json(err));
     },
     // Delete a reaction
+    // TODO: debug route
     deleteReaction(req, res) {
         Thought.findOneAndUpdate(
             { _id: req.params.thoughtId },
