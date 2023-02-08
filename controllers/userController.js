@@ -9,7 +9,6 @@ module.exports = {
             .catch((err) => res.status(500).json(err));
     },
     // Get one user with associated thoughts and friends
-    // TODO: debug - MissingSchemaError: Schema hasn't been registered for model "Thought"
     getSingleUser(req, res) {
         User.findOne({ _id: req.params.userId })
             .populate('thoughts')
@@ -73,11 +72,10 @@ module.exports = {
         .catch((err) => res.status(500).json(err));
     },
     // Delete a friend from user's data
-    // TODO: debug route - no error but doesn't delete friend
     deleteFriend(req, res) {
         User.findOneAndUpdate(
             { _id: req.params.userId },
-            { $pull: { friends: { friendId: req.params.friendId } } },
+            { $pull: { friends: req.params.friendId } },
             { runValidators: true, new: true }
         )
         .then((user) =>

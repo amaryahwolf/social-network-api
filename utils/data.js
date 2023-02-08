@@ -115,18 +115,16 @@ const getRandomArrItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
 // Gets a random username
 const getRandomName = () =>
-// TODO: add logic to separate email from username in users array
-  getRandomArrItem(users);
+  getRandomArrItem(users).username;
 
 // Function to generate random thoughts and reactions to add to db
-// TODO: debug username and reactions seeding
 const getRandomThoughts = (int) => {
     let results = [];
     for (let i = 0; i < int; i++) {
       results.push({
-        thoughtText: getRandomArrItem(thoughts),
+        thoughtText: getRandomArrItem(thoughts).thoughtText,
         username: getRandomName(),
-        reactions: [...getReactions()],
+        reactions: [...getReactions(2)],
       });
     }
     return results;
@@ -140,7 +138,7 @@ const getReactions = (int) => {
     let results = [];
     for (let i = 0; i < int; i++) {
       results.push({
-        reactionBody: getRandomArrItem(reactions),
+        reactionBody: getRandomArrItem(reactions).reactionBody,
         username: getRandomName(),
       });
     }
