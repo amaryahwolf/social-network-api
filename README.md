@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Description
-This application uses Express.js for routing, a MongoDB database, and the Mongoose ODM to create a social network web application API where users can share their thoughts, react to friends' thoughts, and create a friends list.
+This is an API template for a social network web application where users can share their thoughts, react to friends' thoughts, and create a friends list. It uses Express.js for routing, a MongoDB database, and the Mongoose ODM.
 
 ## Table of Contents
 - [Installation](#installation)
@@ -15,10 +15,10 @@ This application uses Express.js for routing, a MongoDB database, and the Mongoo
 - [Questions](#questions)
 
 ## Installation
-To install, first install the necessary packages by running npm i, then seed the data by running node utils/seed.js and finally spin up the server by running npm start.
+To install the application locally, ensure that [Node.js](https://nodejs.org/en/download/) and [MongoDB](https://www.mongodb.com/docs/manual/administration/install-community/) installed, then clone the repository from Github and run the installation script ```npm run install``` followed by the start script ```npm run start```. Ignore the seeding functionality as that component is still in progress.
 
 ## Usage
-To test the API, use a REST client such as Insomnia or Postman and follow the routes outlined in the routes folder. Check out this [walkthrough video](https://drive.google.com/file/d/1jtIVle4gqkv2R0cMKkKRtBv_M7JsMtN5/view) for reference.
+To explore the API, use a REST client such as [Insomnia](https://insomnia.rest/) or [Postman](https://www.postman.com/product/rest-client/) to view, create, update and delete (CRUD) routes. Check out this [walkthrough video](https://drive.google.com/file/d/1jtIVle4gqkv2R0cMKkKRtBv_M7JsMtN5/view) for reference.
 ![Screenshot of application](./public/images/social-network-api.png)
 
 ## Credits

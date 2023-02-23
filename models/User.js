@@ -4,16 +4,16 @@ const { Schema, model } = require('mongoose');
 const userSchema = new Schema(
   {
     username: {
-        type: String,
-        unique: true,
-        required: true,
-        trim: true,
-    },    
+      type: String,
+      unique: true,
+      required: true,
+      trim: true,
+    },
     email: {
-        type: String,
-        unique: true,
-        required: true,
-        match: /.+\@.+\..+/,
+      type: String,
+      unique: true,
+      required: true,
+      match: /.+\@.+\..+/,
     },
     thoughts: [
       {
@@ -22,10 +22,10 @@ const userSchema = new Schema(
       },
     ],
     friends: [
-        {
-          type: Schema.Types.ObjectId,
-          ref: 'user',
-        },
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'user',
+      },
     ],
   },
   {
@@ -38,10 +38,10 @@ const userSchema = new Schema(
 
 // Virtual to retrieve length of user's friends array
 userSchema
-    .virtual('friendCount')
-    .get(function () {
-        return this.friends.length;
-    });
+  .virtual('friendCount')
+  .get(function () {
+    return this.friends.length;
+  });
 
 // Initialize User model
 const User = model('user', userSchema);
